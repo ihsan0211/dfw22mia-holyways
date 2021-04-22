@@ -1,0 +1,23 @@
+@import url("./index.css");
+
+.navbar-container {
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 18px;
+}
+.navbar-logo {
+  margin: 0 7rem;
+}
+.navbar-login-btn {
+  padding: 0.5em 1.5em;
+  margin: 0 1rem;
+}
+.navbar-register-btn {
+  padding: 0.5em 1.5em;
+  margin-right: 7rem;
+  border-radius: 7px;
+}
