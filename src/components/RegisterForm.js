@@ -1,12 +1,12 @@
 import React, { forwardRef } from "react";
-import "../styles/LoginForm.css";
-const LoginForm = ({ hideForm, changeForm }, refs) => {
+import "../styles/RegisterForm.css";
+const RegisterForm = ({ hideForm, changeForm }, refs) => {
   return (
     <div ref={refs} className="DisplayManipulation">
       <div className="background-overlay" onClick={hideForm}></div>
-      <div className="login-form-container">
-        <h1 className="title">Login</h1>
-        <form className="login-form">
+      <div className="register-form-container">
+        <h1 className="title">Register</h1>
+        <form className="register-form">
           <input
             className="input"
             type="email"
@@ -19,10 +19,16 @@ const LoginForm = ({ hideForm, changeForm }, refs) => {
             name="password"
             placeholder="Password"
           ></input>
-          <button className="red-button login-form-btn">Login</button>
+          <input
+            className="input"
+            type="name"
+            name="name"
+            placeholder="Full Name"
+          ></input>
+          <button className="red-button register-form-btn">Register</button>
         </form>
         <p className="form-under">
-          Don't have an account ? Klik
+          Already have an account ? Klik
           <button className="form-here" onClick={changeForm}>
             here
           </button>
@@ -32,4 +38,4 @@ const LoginForm = ({ hideForm, changeForm }, refs) => {
   );
 };
 
-export default forwardRef(LoginForm);
+export default forwardRef(RegisterForm);

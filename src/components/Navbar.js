@@ -1,19 +1,22 @@
 import React, { useRef } from "react";
 import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
+
 import "../styles/Navbar.css";
 
 import Holyways from "../Images/Holyways.svg";
 
 const Navbar = () => {
-  const PopUp = useRef();
+  const popupLoginForm = useRef();
+  const popupRegisterForm = useRef();
 
-  const displayPopUp = () => {
-    // PopUp.current.style.background = "blue";
-    // console.log(PopUp.current.style.display);
-    PopUp.current.style.display = "block";
+  const changeToRegisterForm = () => {
+    popupLoginForm.current.style.display = "none";
+    popupRegisterForm.current.style.display = "block";
   };
-  const hidePopUp = () => {
-    PopUp.current.style.display = "none";
+  const changeToLoginForm = () => {
+    popupRegisterForm.current.style.display = "none";
+    popupLoginForm.current.style.display = "block";
   };
 
   return (
@@ -25,14 +28,28 @@ const Navbar = () => {
         <div>
           <button
             className="red-button navbar-login-btn"
-            onClick={displayPopUp}
+            onClick={() => (popupLoginForm.current.style.display = "block")}
           >
             Login
           </button>
-          <button className="white-button navbar-register-btn">Register</button>
+          <button
+            className="white-button navbar-register-btn"
+            onClick={() => (popupRegisterForm.current.style.display = "block")}
+          >
+            Register
+          </button>
         </div>
       </nav>
-      <LoginForm ref={PopUp} onClick={hidePopUp} />
+      <LoginForm
+        ref={popupLoginForm}
+        hideForm={() => (popupLoginForm.current.style.display = "none")}
+        changeForm={changeToRegisterForm}
+      />
+      <RegisterForm
+        ref={popupRegisterForm}
+        hideForm={() => (popupRegisterForm.current.style.display = "none")}
+        changeForm={changeToLoginForm}
+      />
     </div>
   );
 };
